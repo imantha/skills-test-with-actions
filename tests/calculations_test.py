@@ -67,7 +67,7 @@ def test_get_nth_fibonacci_ten():
     result = get_nth_fibonacci(n)
 
     # Assert
-    assert result == 89
+    assert result == 55
 
 # @professortocat, I've run my coverage report.
 # Seems there is some opportunity to increase the test coverage. 🧐
