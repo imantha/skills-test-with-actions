@@ -33,23 +33,10 @@ def test_area_of_circle_zero_radius():
     # Assert
     assert result == 0
 
-
-def test_get_nth_fibonacci_zero():
-    """Test with n=0."""
-    # Arrange
-    n = 0
-
-    # Act
-    result = get_nth_fibonacci(n)
-
-    # Assert
-    assert result == 0
-
-
-def test_get_nth_fibonacci_one():
-    """Test with n=1."""
-    # Arrange
     n = 1
+    """Test with n < 0 should raise ValueError."""
+    with pytest.raises(ValueError, match="n cannot be negative"):
+        get_nth_fibonacci(-5)
 
     # Act
     result = get_nth_fibonacci(n)
@@ -58,16 +45,34 @@ def test_get_nth_fibonacci_one():
     assert result == 1
 
 
-# def test_get_nth_fibonacci_ten():
-#     """Test with n=10."""
-#     # Arrange
-#     n = 10
+def test_get_nth_fibonacci_ten():
+    """Test with n=10."""
+    # Arrange
+    n = 10
 
-#     # Act
-#     result = get_nth_fibonacci(n)
+    # Act
+    result = get_nth_fibonacci(n)
 
-#     # Assert
-#     assert result == 89
+    # Assert
+    assert result == 55
+
+def test_area_of_circle_negative_radius():
+   """Test with a negative radius to raise ValueError."""
+   # Arrange
+   radius = -1
+
+   # Act & Assert
+   with pytest.raises(ValueError):
+      area_of_circle(radius)
+
+def test_get_nth_fibonacci_negative():
+   """Test with a negative number to raise ValueError."""
+   # Arrange
+   n = -1
+
+   # Act & Assert
+   with pytest.raises(ValueError):
+      get_nth_fibonacci(n)
 
 # @professortocat, I've run my coverage report.
 # Seems there is some opportunity to increase the test coverage. 🧐
